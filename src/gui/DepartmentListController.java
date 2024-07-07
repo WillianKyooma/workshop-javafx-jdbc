@@ -125,6 +125,7 @@ public class DepartmentListController implements Initializable,DataChangeListene
 		
 	}
 	
+	//botão de atualização de departamento metodo.
 	private void initEditButtons() {
 	    tableColumnEDIT.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 	    tableColumnEDIT.setCellFactory(param -> new TableCell<Department, Department>() {
