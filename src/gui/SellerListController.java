@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import application.Main;
 import db.DbIntegrityException;
 import gui.listeners.DataChangeListener;
@@ -31,11 +30,13 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entities.Seller;
+import model.services.DepartmentService;
 import model.services.SellerService;
 
 public class SellerListController implements Initializable, DataChangeListener {
 
 	private SellerService service;
+     
 
 	@FXML
 	private TableView<Seller> tableViewSeller;
@@ -80,6 +81,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 	// INJEÇÃO DE DEPENDENCIA DIFERENTE SEM SER FORTEMENTE ACOPLADA COM NEW.
 	public void SetSellerService(SellerService service) {
 		this.service = service;
+		
 	}
 
 	@Override
@@ -122,7 +124,8 @@ public class SellerListController implements Initializable, DataChangeListener {
 
 			SellerFormController controller = loader.getController();
 			controller.setSeller(obj);
-			controller.setSellerService(new SellerService());
+			controller.setServices(new SellerService(),new DepartmentService());
+			controller.loadAssocietedObjects();
 			controller.subscribeDataChangeListener(this);
 			controller.updateFormData();
 
