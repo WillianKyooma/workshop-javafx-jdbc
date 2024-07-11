@@ -27,6 +27,16 @@ public class Utils {
 		} catch (NumberFormatException e) {
 			return null;
 		}
+	} 
+	
+	
+	//Converte String para Double
+	public static Double tryParseToDouble(String str) {
+		try {
+			return Double.parseDouble(str);
+		} catch (NumberFormatException e) {
+			return null;
+		}
 	}
 
 	public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
