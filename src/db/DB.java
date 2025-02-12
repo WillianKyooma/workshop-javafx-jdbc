@@ -26,7 +26,7 @@ public class DB {
 		}
 		return conn;
 	}
-	
+	//meu projeto ;3
 	public static void closeConnection() {
 		if (conn != null) {
 			try {
